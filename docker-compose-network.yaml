@@ -11,7 +11,7 @@ networks:
 
 services:
   admin:
-    image: akachain/devtool-admin:lastest
+    image: akachain/devtool-admin:latest
     ports:
       - "44081:4001"
     volumes:
