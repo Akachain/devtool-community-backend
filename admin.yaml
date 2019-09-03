@@ -1,0 +1,19 @@
+version: '3.5'
+
+networks:
+  akc-net:
+    name: $NETWORK_NAME
+
+services:
+  admin:
+    image: akachain/devtool-admin:1.0.2
+    ports:
+      - "44081:4001"
+    volumes:
+      - ./artifacts/:/data/app/artifacts
+      - ./user/crypto-path/:/shared/crypto-path
+      - ./user/crypto-store/:/shared/crypto-store
+      - ./chaincodes/:/data/app/artifacts/src/chaincodes
+    container_name: admin
+    networks:
+      - akc-net

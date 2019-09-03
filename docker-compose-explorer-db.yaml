@@ -1,0 +1,18 @@
+version: '3.5'
+
+networks:
+  akc-net:
+    name: $NETWORK_NAME
+
+services:
+  explorer-db:
+    image: akachain/devtool-explorer/db:1.0.0
+    environment:
+      - DATABASE_DATABASE=fabricexplorer
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=Akachain
+    ports:
+      - "5432:5432"
+    container_name: explorer-db
+    networks:
+      - akc-net
