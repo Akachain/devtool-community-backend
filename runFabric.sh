@@ -236,11 +236,11 @@ function testSingleHost () {
 
   docker-compose -f docker-compose-configCA.yaml up -d
 
-  echo starting akachain explorer..
-  docker-compose -f docker-compose-explorer-db.yaml up -d
-  sleep 2s
-  docker exec -it explorer-db sh -c "createdb -h localhost -p 5432 -U postgres fabricexplorer"
-  docker-compose -f docker-compose-explorer.yaml up -d
+  # echo starting akachain explorer..
+  # docker-compose -f docker-compose-explorer-db.yaml up -d
+  # sleep 2s
+  # docker exec -it explorer-db sh -c "createdb -h localhost -p 5432 -U postgres fabricexplorer"
+  # docker-compose -f docker-compose-explorer.yaml up -d
 
 }
 
