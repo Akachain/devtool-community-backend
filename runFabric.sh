@@ -113,7 +113,7 @@ function generate () {
 
 function clean () {
   clearContainers
-  dkrm
+  # dkrm
   for file in $(find . -name "fabric-client-kv-*");
   do
     echo $file;
