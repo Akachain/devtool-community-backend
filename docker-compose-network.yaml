@@ -12,6 +12,7 @@ networks:
 services:
   admin:
     image: akachain/devtool-admin:latest
+    restart: always
     ports:
       - "44081:4001"
     volumes:
@@ -24,6 +25,7 @@ services:
       - akc-net
   ca.org1:
     image: hyperledger/fabric-ca:$IMAGE_TAG
+    restart: always
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-${ORGNAMES1}
@@ -44,6 +46,7 @@ services:
 
   ca.org2:
     image: hyperledger/fabric-ca:$IMAGE_TAG
+    restart: always
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-${ORGNAMES2}
@@ -65,6 +68,7 @@ services:
   orderer0.orderer:
     container_name: orderer0.orderer
     image: hyperledger/fabric-orderer:$IMAGE_TAG
+    restart: always
     environment:
       - FABRIC_LOGGING_SPEC=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -91,6 +95,7 @@ services:
   peer0.org1:
     container_name: peer0.${ORGNAMES1}
     image: hyperledger/fabric-peer:$IMAGE_TAG
+    restart: always
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=peer0.${ORGDOMAINS1}-db:5984
@@ -137,6 +142,7 @@ services:
   peer0.org1-db:
     container_name: peer0.${ORGNAMES1}-db
     image: hyperledger/fabric-couchdb:${DB_IMAGE_TAG}
+    restart: always
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -151,6 +157,7 @@ services:
   peer1.org1:
     container_name: peer1.${ORGNAMES1}
     image: hyperledger/fabric-peer:$IMAGE_TAG
+    restart: always
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=peer1.${ORGDOMAINS1}-db:5984
@@ -197,6 +204,7 @@ services:
   peer1.org1-db:
     container_name: peer1.${ORGNAMES1}-db
     image: hyperledger/fabric-couchdb:${DB_IMAGE_TAG}
+    restart: always
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -257,6 +265,7 @@ services:
   peer0.org2-db:
     container_name: peer0.${ORGNAMES2}-db
     image: hyperledger/fabric-couchdb:${DB_IMAGE_TAG}
+    restart: always
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -271,6 +280,7 @@ services:
   peer1.org2:
     container_name: peer1.${ORGNAMES2}
     image: hyperledger/fabric-peer:$IMAGE_TAG
+    restart: always
     environment:
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=peer1.${ORGDOMAINS2}-db:5984
@@ -317,6 +327,7 @@ services:
   peer1.org2-db:
     container_name: peer1.${ORGNAMES2}-db
     image: hyperledger/fabric-couchdb:${DB_IMAGE_TAG}
+    restart: always
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:

@@ -13,6 +13,7 @@ services:
   configCA.org1:
     container_name: configCA.org1
     image: hyperledger/fabric-ca:${IMAGE_TAG}
+    restart: always
     environment:
       - ORGNAMES=${ORGNAMES1}
       - ORGDOMAINS=${ORGDOMAINS1}
@@ -28,6 +29,7 @@ services:
   configCA.org2:
     container_name: configCA.org2
     image: hyperledger/fabric-ca:${IMAGE_TAG}
+    restart: always
     environment:
       - ORGNAMES=${ORGNAMES2}
       - ORGDOMAINS=${ORGDOMAINS2}
