@@ -2,3 +2,5 @@ chaincodes/*
 artifacts/*
 user/crypto-path/*
 user/crypto-store/*
+scripts/env.sh
+.env

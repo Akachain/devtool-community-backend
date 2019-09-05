@@ -4,12 +4,10 @@ version: '3.5'
 networks:
   akc-net:
     name: $NETWORK_NAME
-
 services:
   cryptogen:
     container_name: cryptogen
     image: hyperledger/fabric-tools:$IMAGE_TAG
-    restart: always
     volumes:
       - ./artifacts/:/shared/artifacts
       - ./scripts/:/shared/scripts
