@@ -231,7 +231,6 @@ function testSingleHost () {
   
   docker-compose -f docker-compose-network.yaml up -d
 
-  echo sleep 10s
   sleep 10s
 
   docker-compose -f docker-compose-configCA.yaml up -d
