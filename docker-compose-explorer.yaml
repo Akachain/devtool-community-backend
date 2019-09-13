@@ -7,7 +7,7 @@ networks:
 
 services:
   explorer:
-    image: akachain/devtool-explorer:1.0.0
+    image: akachain/devtool-explorer
     environment:
       - DATABASE_HOST=explorer-db
       - DATABASE_USERNAME=postgres

@@ -6,7 +6,7 @@ networks:
 
 services:
   explorer-db:
-    image: akachain/devtool-explorer/db:1.0.0
+    image: akachain/devtool-explorer-db
     environment:
       - DATABASE_DATABASE=fabricexplorer
       - DATABASE_USERNAME=postgres
