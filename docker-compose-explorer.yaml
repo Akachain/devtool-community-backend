@@ -16,6 +16,7 @@ services:
       - "8080:8080"
     volumes:
       - ./artifacts/crypto-config/:/opt/explorer/crypto-config/
+      - ./artifacts/config-explorer/:/opt/explorer/app/platform/fabric/config/
       - ./user/crypto-path/:/opt/explorer/crypto-path/
       - ./user/crypto-store/:/tmp/crypto-store/
     container_name: explorer

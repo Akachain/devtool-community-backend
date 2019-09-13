@@ -133,6 +133,23 @@ function generateOrgsYamlFiles () {
   done 
 }
 
+function generateConfigExplorer () {
+  # OPTS="-i"
+  # max=`expr $TOTALORG - 1`
+  # for i in `seq 0 $max`
+  # do 
+    if [ ! -d config-explorer ]; then
+      mkdir config-explorer
+    fi
+    cp -f ../template/config-template.json config.json
+    sed $OPTS "s/YOURORG1NAME/${ORGNAMES[0]}/g" config.json
+    sed $OPTS "s/YOURORG1DOMAIN/${ORGDOMAINS[0]}/g" config.json
+    sed $OPTS "s/YOURORG1MSP/${ORGMSPS[0]}/g" config.json
+    sed $OPTS "s/YOURCHANNEL/${CHANNEL_NAME[0]}/g" config.json
+    mv config.json config-explorer/config.json
+  # done 
+}
+
 function replacePrivateKey () {
   # OPTS="-i"
   cp -f ../template/network-config-template.yaml network-config.yaml
@@ -176,6 +193,7 @@ function generate () {
   generateChannelArtifacts
   replacePrivateKey
   generateOrgsYamlFiles
+  generateConfigExplorer
   cd $CURRENT_DIR_GENERATE
   echo $CURRENT_DIR_GENERATE
   echo $PWD

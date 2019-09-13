@@ -1,5 +1,8 @@
-chaincodes/*
-artifacts/*
+chaincodes/src
+artifacts/channel-artifacts/*
+artifacts/crypto-config/*
+artifacts/config-explorer/*
+artifacts/*.yaml
 user/crypto-path/*
 user/crypto-store/*
 scripts/env.sh

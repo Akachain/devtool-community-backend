@@ -1,0 +1,91 @@
+{
+  "network-configs": {
+    "network-1": {
+      "version": "1.0",
+      "clients": {
+        "org1": {
+          "tlsEnable": true,
+          "organization": "YOURORG1MSP",
+          "channel": "YOURCHANNEL",
+          "credentialStore": {
+            "path": "/opt/explorer/crypto-path/fabric-client-kv-YOURORG1NAME",
+            "cryptoStore": {
+              "path": "/tmp/crypto-store/fabric-client-kv-YOURORG1NAME"
+            }
+          }
+        }
+      },
+      "channels": {
+        "YOURCHANNEL": {
+          "peers": {
+            "peer0.YOURORG1DOMAIN": {},
+            "peer1.YOURORG1DOMAIN": {}
+          },
+          "connection": {
+            "timeout": {
+              "peer": {
+                "endorser": "6000",
+                "eventHub": "6000",
+                "eventReg": "6000"
+              }
+            }
+          }
+        }
+      },
+      "organizations": {
+        "YOURORG1MSP": {
+          "mspid": "YOURORG1MSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG1DOMAIN/users/Admin@YOURORG1DOMAIN/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG1DOMAIN/users/Admin@YOURORG1DOMAIN/msp/signcerts"
+          }
+        },
+        "AKCOrdererMSP": {
+          "mspid": "AKCOrdererMSP",
+          "adminPrivateKey": {
+            "path":"/opt/explorer/crypto-config/ordererOrganizations/orderer/users/Admin@orderer/msp/keystore"
+          }
+        }
+      },
+      "peers": {
+        "peer0.YOURORG1DOMAIN": {
+          "tlsCACerts": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG1DOMAIN/peers/peer0.YOURORG1DOMAIN/tls/ca.crt"
+          },
+          "url": "grpcs://peer0.YOURORG1DOMAIN:7051",
+          "eventUrl": "grpcs://peer0.YOURORG1DOMAIN:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.YOURORG1DOMAIN"
+          }
+        },
+        "peer1.YOURORG1DOMAIN": {
+          "tlsCACerts": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG1DOMAIN/peers/peer1.YOURORG1DOMAIN/tls/ca.crt"
+          },
+          "url": "grpcs://peer1.YOURORG1DOMAIN:7051",
+          "eventUrl": "grpcs://peer1.YOURORG1DOMAIN:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer1.YOURORG1DOMAIN"
+          }
+
+        }
+      },
+      "orderers": {
+        "orderer0.orderer": {
+          "url": "grpcs://orderer0.orderer:7050",
+	        "grpcOptions": {
+            "ssl-target-name-override": "orderer0.orderer"
+          },
+	        "tlsCACerts": {
+      	     "path": "/opt/explorer/crypto-config/ordererOrganizations/orderer/orderers/orderer0.orderer/tls/ca.crt"
+	        }
+        }
+      }
+    },
+    "network-2": {}
+  },
+  "license": "Apache-2.0"
+}
