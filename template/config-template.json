@@ -19,7 +19,9 @@
         "YOURCHANNEL": {
           "peers": {
             "peer0.YOURORG1DOMAIN": {},
-            "peer1.YOURORG1DOMAIN": {}
+            "peer1.YOURORG1DOMAIN": {},
+            "peer0.YOURORG2DOMAIN": {},
+            "peer1.YOURORG2DOMAIN": {}
           },
           "connection": {
             "timeout": {
@@ -41,6 +43,16 @@
           },
           "signedCert": {
             "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG1DOMAIN/users/Admin@YOURORG1DOMAIN/msp/signcerts"
+          }
+        },
+        "YOURORG2MSP": {
+          "mspid": "YOURORG2MSP",
+          "fullpath": false,
+          "adminPrivateKey": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG2DOMAIN/users/Admin@YOURORG2DOMAIN/msp/keystore"
+          },
+          "signedCert": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG2DOMAIN/users/Admin@YOURORG2DOMAIN/msp/signcerts"
           }
         },
         "AKCOrdererMSP": {
@@ -69,6 +81,27 @@
           "eventUrl": "grpcs://peer1.YOURORG1DOMAIN:7053",
           "grpcOptions": {
             "ssl-target-name-override": "peer1.YOURORG1DOMAIN"
+          }
+
+        },
+        "peer0.YOURORG2DOMAIN": {
+          "tlsCACerts": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG2DOMAIN/peers/peer0.YOURORG2DOMAIN/tls/ca.crt"
+          },
+          "url": "grpcs://peer0.YOURORG2DOMAIN:7051",
+          "eventUrl": "grpcs://peer0.YOURORG2DOMAIN:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer0.YOURORG2DOMAIN"
+          }
+        },
+        "peer1.YOURORG2DOMAIN": {
+          "tlsCACerts": {
+            "path": "/opt/explorer/crypto-config/peerOrganizations/YOURORG2DOMAIN/peers/peer1.YOURORG2DOMAIN/tls/ca.crt"
+          },
+          "url": "grpcs://peer1.YOURORG2DOMAIN:7051",
+          "eventUrl": "grpcs://peer1.YOURORG2DOMAIN:7053",
+          "grpcOptions": {
+            "ssl-target-name-override": "peer1.YOURORG2DOMAIN"
           }
 
         }

@@ -145,6 +145,8 @@ function generateConfigExplorer () {
     sed $OPTS "s/YOURORG1NAME/${ORGNAMES[0]}/g" config.json
     sed $OPTS "s/YOURORG1DOMAIN/${ORGDOMAINS[0]}/g" config.json
     sed $OPTS "s/YOURORG1MSP/${ORGMSPS[0]}/g" config.json
+    sed $OPTS "s/YOURORG2DOMAIN/${ORGDOMAINS[1]}/g" config.json
+    sed $OPTS "s/YOURORG2MSP/${ORGMSPS[1]}/g" config.json
     sed $OPTS "s/YOURCHANNEL/${CHANNEL_NAME[0]}/g" config.json
     mv config.json config-explorer/config.json
   # done 
