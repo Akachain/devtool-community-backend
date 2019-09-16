@@ -238,10 +238,13 @@ function testSingleHost () {
   docker-compose -f docker-compose-configCA.yaml up -d
 
   echo starting akachain explorer..
+  docker-compose -f docker-compose-explorer-db.yaml pull
+  docker-compose -f docker-compose-explorer.yaml pull
+
   docker-compose -f docker-compose-explorer-db.yaml up -d
   sleep 2s
-  docker exec explorer-db sh -c "createdb -h localhost -p 5432 -U postgres fabricexplorer"
-  docker exec explorer-db /bin/bash /opt/createdb.sh
+  # docker exec explorer-db sh -c "createdb -h localhost -p 5432 -U postgres fabricexplorer"
+  docker exec explorer-db /bin/bash /opt/createdb_new.sh
   # docker exec -it explorer-db sh -c "createdb -h localhost -p 5432 -U postgres fabricexplorer"
   docker-compose -f docker-compose-explorer.yaml up -d
 
