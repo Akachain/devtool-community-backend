@@ -10,10 +10,11 @@ services:
     image: akachain/devtool-explorer
     environment:
       - DATABASE_HOST=explorer-db
+      - DATABASE_PORT=5432
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWD=Akachain
     ports:
-      - "8080:8080"
+      - "48080:8080"
     volumes:
       - ./artifacts/crypto-config/:/opt/explorer/crypto-config/
       - ./artifacts/config-explorer/:/opt/explorer/app/platform/fabric/config/

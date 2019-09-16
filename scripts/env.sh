@@ -1,4 +1,4 @@
-CHANNEL_NAME=(esst)
+CHANNEL_NAME=(test)
 TOTALORG=2
 ORGNAMES=(test1 test2)
 ORGDOMAINS=(test1 test2)

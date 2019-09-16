@@ -12,7 +12,7 @@ services:
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=Akachain
     ports:
-      - "5432:5432"
+      - "45432:5432"
     container_name: explorer-db
     networks:
       - akc-net
