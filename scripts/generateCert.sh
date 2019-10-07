@@ -1,7 +1,12 @@
 function generateConfigFiles () {
   # OPTS="-i"
   cp -f ../template/cryptogen-template.yaml cryptogen.yaml
-  cp -f ../template/configtx-template.yaml configtx.yaml
+
+  if [ "$FABRICVER" == "1.2.1" ]; then
+    cp -f ../template/configtx-older-template.yaml configtx.yaml
+  else
+    cp -f ../template/configtx-template.yaml configtx.yaml
+  fi
 
   max=`expr $TOTALORG - 1`
   for i in `seq 0 $max`
